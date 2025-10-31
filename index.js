@@ -1,4 +1,5 @@
 import { tweetsData } from "./data.js";
+import { v4 as uuidv4 } from "https://cdn.jsdelivr.net/npm/uuid@9.0.1/dist/esm-browser/index.js";
 
 const tweetInput = document.getElementById("tweet-input");
 
@@ -50,9 +51,19 @@ function handleReplyClick(replyId) {
     document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
-function handleTweetBtnClick(){
-    console.log(tweetInput.value)
-}
+function handleTweetBtnClick(e){
+        console.log({
+             handle: `@Scrimba`,
+             profilePic: `images/scrimbalogo.png`,
+             likes: 0,
+             retweets: 0,
+             tweetText: tweetInput.value ,
+             replies: [],
+             isLiked: false,
+             isRetweeted: false,
+              uuid: uuidv4()
+        })
+    }
 
 
 function getFeedHtml() {
